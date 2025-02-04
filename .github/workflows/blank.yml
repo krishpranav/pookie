@@ -9,20 +9,38 @@ on:
       - main
 
 jobs:
-  install-dependencies:
+  ubuntu:
     runs-on: ubuntu-latest
-    
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '16'  # Use the version of Node.js you need, e.g., 14, 16, etc.
-
+        node-version: '16'  
     - name: Install dependencies
-      run: npm install  # Or yarn install if you use Yarn
-    
-    - name: Run tests
-      run: npm test  # Optional: Run tests after installing dependencies
+      run: npm install 
+
+  macos:
+    runs-on: macos-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'  
+    - name: Install dependencies
+      run: npm install 
+
+  windows:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'  
+    - name: Install dependencies
+      run: npm install 
