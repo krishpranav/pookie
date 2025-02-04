@@ -1,0 +1,172 @@
+{
+    "name": "pookie",
+    "description": "Programming Language For Full-Stack Developer",
+    "author": "Krisna Pranav",
+    "version": "1.0",
+    "scripts": {
+      "test": "node bin/pookie scripts/test-runner.pookie",
+      "test-cli": "cd test/cli && node ../../bin/pookie index.pookie",
+      "test:std": "pookie test run -- --dir ./test/std",
+      "clean": "find test/apps -name '*.js' -type f -delete && rm -r dist/",
+      "watch": "node scripts/build.js -w",
+      "dev": "npm run watch",
+      "create-example": "node bin/pookie scripts/create-example.pookie",
+      "generate-typings": "node bin/pookie scripts/docs/generate-typings.pookie",
+      "build-parser": "node scripts/build-parser.js",
+      "build": "npm run build-parser && node scripts/build.js",
+      "prepack": "npm run build",
+      "sync": "npm i && npm run build && npm link"
+    },
+    "engines": {
+      "node": ">=13.10.0"
+    },
+    "bin": {
+      "pookie": "./bin/pookie",
+      "pookiec": "./bin/pookiec"
+    },
+    "main": "./index",
+    "type": "commonjs",
+    "browser": {
+      ".": "./dist/pookie.mjs",
+      "./program": "./program.pookie.js",
+      "./compiler": "./dist/compiler.mjs",
+      "./runtime": "./src/pookie/runtime.mjs"
+    },
+    "files": [
+      "bin",
+      "src",
+      "dist",
+      "build",
+      "typings",
+      "vendor",
+      "scripts/bootstrap.compiler.js",
+      "polyfills",
+      "*.pookie",
+      "*.d.ts",
+      "*.js",
+      "*.css",
+      "*.md",
+      "templates"
+    ],
+    "exports": {
+      "./preflight.css": "./preflight.css",
+      "./hmr": "./hmr.js",
+      "./runtime": {
+        "default": "./src/pookie/runtime.mjs"
+      },
+      ".": {
+        "tspookie": "./src/pookie/pookie.pookie.ts",
+        "pookie": "./src/pookie/pookie.pookie",
+        "browser": "./dist/pookie.mjs",
+        "default": "./index.js"
+      },
+      "./spec": {
+        "pookie": "./src/utils/spec.pookie"
+      },
+      "./colors": {
+        "tspookie": "./src/utils/colors.pookie.ts",
+        "pookie": "./src/utils/colors.pookie",
+        "default": "./dist/colors.mjs",
+        "browser": "./dist/colors.mjs",
+        "require": "./dist/colors.cjs"
+      },
+      "./std": {
+        "tspookie": "./src/utils/std/std.pookie.ts",
+        "pookie": "./src/utils/std/std.pookie",
+        "default": "./dist/std.mjs",
+        "browser": "./dist/std.mjs",
+        "require": "./dist/std.cjs"
+      },
+      "./std/*": {
+        "tspookie": "./src/utils/std/*.pookie.ts",
+        "pookie": "./src/utils/std/*.pookie"
+      },
+      "./program": {
+        "browser": "./program.browser.pookie.js",
+        "require": "./program.pookie.js"
+      },
+      "./workers": "./workers.pookie.js",
+      "./compiler": {
+        "browser": "./dist/compiler.mjs",
+        "require": "./dist/compiler.cjs",
+        "default": "./dist/compiler.mjs"
+      },
+      "./plugin": {
+        "browser": "./dist/plugin.mjs",
+        "require": "./dist/plugin.cjs",
+        "default": "./dist/plugin.mjs"
+      }
+    },
+    "peerDependencies": {
+      "@testing-library/dom": "*",
+      "@testing-library/jest-dom": "*",
+      "vite": "*",
+      "vite-node": "*",
+      "vitest": "*"
+    },
+    "peerDependenciesMeta": {
+      "@testing-library/dom": {
+        "optional": true
+      },
+      "@testing-library/jest-dom": {
+        "optional": true
+      },
+      "vite": {
+        "optional": true
+      },
+      "vite-node": {
+        "optional": true
+      },
+      "vitest": {
+        "optional": true
+      }
+    },
+    "devDependencies": {
+      "@jridgewell/trace-mapping": "^0.3.18",
+      "@rollup/pluginutils": "^5.0.2",
+      "commander": "^6.2.1",
+      "haikunator": "^2.1.2",
+      "ignore": "^5.2.4",
+      "image-size": "^0.9.3",
+      "micromatch": "^4.0.5",
+      "ora": "^5.2.0",
+      "picomatch": "^2.2.2",
+      "puppeteer": "^22.12.1",
+      "sourcemap-codec": "^1.4.8",
+      "tmp": "^0.2.1",
+      "tree-kill": "^1.2.2",
+      "vite": "^4.4.9",
+      "vite-node": "^0.32.4",
+      "vitest": "^0.32.4",
+      "workerpool": "^6.0.3"
+    },
+    "dependencies": {
+      "@antfu/install-pkg": "^0.1.1",
+      "chokidar": "^3.4.3",
+      "colord": "^2.9.3",
+      "cross-spawn": "^7.0.3",
+      "debug": "^4.3.4",
+      "dotenv": "^16.0.3",
+      "envinfo": "^7.8.1",
+      "esbuild": "^0.15.2",
+      "fdir": "^6.1.0",
+      "get-port": "^5.1.1",
+      "local-pkg": "^0.4.2",
+      "lodash.mergewith": "^4.6.2",
+      "prompts": "^2.4.2"
+    },
+    "directories": {},
+    "preferGlobal": true,
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/krishpranav/pookie.git"
+    },
+    "bugs": "https://github.com/krishpranav/pookie/issues",
+    "licenses": [
+      {
+        "type": "MIT",
+        "url": "https://github.com/krishpranav/pookie/blob/main/LICENSE"
+      }
+    ],
+    "license": "Apache-2.0"
+  }
