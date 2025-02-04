@@ -1,0 +1,10 @@
+{
+    "packages": [
+      "packages/pookie",
+      "packages/typescript-pookie-plugin",
+      "packages/vscode-pookie",
+      "packages/pookie-monarch"
+    ],
+    "allowBranch": ["master"],
+    "version": "independent"
+  }

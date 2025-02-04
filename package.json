@@ -1,0 +1,13 @@
+{
+    "name": "pookie-monorepo",
+
+    "private": true,
+    "devDependencies": {
+        "lerna": "^8.0.0"
+    },
+    
+    "scripts": {
+        "release": "lerna publish",
+        "prereleasez": "lerna publish --force-publish --canary --preid next-$(git log -1 --format=%at) --dist-tag next --pre-dist-tag next"
+    }
+}
